@@ -163,7 +163,25 @@ io.on('connection', async (socket) => {
   socket.on('prodsDesafio11', async (dataProds) => {
     io.sockets.emit('prodsDesafio11 FAKER', generateURL())
   })
-  
+
   // ----------- FAKER - NORMALIZR -----------
 })
 // WEBSOCKETS
+
+const { wsServer, clients, getUniqueID, webSocketsServerPort, requests, messages, userID } = require("./WEBSOCKETS/WebSocketsReactServ.js")
+
+wsServer.on('request', async function (request) {
+  await requests(request)
+
+  const connection = request.accept(null, request.origin);
+  clients[userID] = connection;
+
+  connection.on('message', function (message) {
+    messages()
+  })
+
+});
+
+
+
+
