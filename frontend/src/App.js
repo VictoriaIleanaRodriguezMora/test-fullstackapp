@@ -2,8 +2,9 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import WebSockets from './WebSockets/WebSockets';
 
+
 function App() {
-  <WebSockets></WebSockets>
+
   const [dataBack, setDataBack] = useState([{}])
 
   useEffect(() => {
@@ -21,7 +22,10 @@ function App() {
   )
   // console.log(toShow);
   return (
-    <div>{toShow}</div>
+    <>
+      <div>{toShow}</div>
+      <WebSockets></WebSockets>
+    </>
   )
 }
 

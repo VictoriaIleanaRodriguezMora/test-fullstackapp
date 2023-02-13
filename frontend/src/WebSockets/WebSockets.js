@@ -11,15 +11,31 @@ componentDidMount() */
 
 const WebSockets = () => {
 
+    function onButtonClicked(value) {
+        client.send(JSON.stringify({
+            type: "message",
+            msg: value,
+        }));
+    }
+
     function componentDidMount() {
         client.onopen = () => {
             console.log('WebSocket Client Connected');
         };
+
+        client.onmessage = (message) => {
+            const dataFromServer = JSON.parse(message.data);
+            // console.log('got reply! ', dataFromServer);
+        }
     }
     componentDidMount()
 
+
+
     return (
-        <div>WebSockets</div>
+        <div>WebSockets
+            <button onClick={() => onButtonClicked("Hello")} >Sennddn</button>
+        </div>
     )
 
 }

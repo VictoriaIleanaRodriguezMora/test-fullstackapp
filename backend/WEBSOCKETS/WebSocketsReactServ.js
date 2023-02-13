@@ -10,7 +10,7 @@ server.listen(webSocketsServerPort, () => console.log('WEBSOCKETS SERVER http://
 const wsServer = new webSocketServer({
     httpServer: server
 });
- 
+
 const clients = {};
 
 // This code generates unique userid for everyuser.
@@ -18,7 +18,7 @@ const getUniqueID = () => {
     const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     return s4() + s4() + '-' + s4();
 };
- 
+
 /* wsServer.on('request', function (request) {
     var userID = getUniqueID();
     console.log((new Date()) + ' Recieved a new connection from origin ' + request.origin + '.');
@@ -41,18 +41,17 @@ const getUniqueID = () => {
     })
 }); */
 let userID
-async function requests(request) {
+function requests(request) {
     userID = getUniqueID();
     console.log((new Date()) + ' Recieved a new connection from origin ' + request.origin + '.');
-    console.log('connected: ' + userID + ' in ' + Object.getOwnPropertyNames(clients));
 
     // You can rewrite this part of the code to accept only the requests from allowed origin
-/*     const connection = request.accept(null, request.origin);
-    clients[userID] = connection;
-    console.log('connected: ' + userID + ' in ' + Object.getOwnPropertyNames(clients)); */
+    /*     const connection = request.accept(null, request.origin);
+        clients[userID] = connection;
+        console.log('connected: ' + userID + ' in ' + Object.getOwnPropertyNames(clients)); */
 
 }
-async function messages() {
+function messages() {
     if (message.type === 'utf8') {
         console.log('Received Message: ', message.utf8Data);
 
