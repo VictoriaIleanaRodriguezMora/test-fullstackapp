@@ -90,6 +90,7 @@ async function enviarMsg() {
 /* chat */
 
 // ----------------- Socket Products -----------------
+
 socket.on('products', (dataProds) => {
   // La dataProds es un [{...}, {...}]
   console.log('Products from BACK: ', dataProds)
@@ -124,7 +125,7 @@ const inputProds = () => {
 // ----------------- Socket Products -----------------
 
 // ----------- FAKER - NORMALIZR -----------
-
+/* 
 socket.on('fakerInfo', async (dataProds) => {
   const tBody = document.querySelector('#tbodyFaker')
 
@@ -146,5 +147,5 @@ socket.on('fakerInfo', async (dataProds) => {
   console.log('fakerInfo', dataProds)
   //   socket.io.emit(dataProds)
 })
-
+ */
 // ----------- FAKER - NORMALIZR -----------

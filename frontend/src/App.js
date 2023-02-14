@@ -4,6 +4,11 @@ import React, { useEffect, useState } from "react";
 import Form from './components/Form/Form';
 import Sio from './components/SIO/Sio';
 import Faker from './components/Faker.js/Faker';
+import Messages from './components/Messages_Chat/Messages';
+
+
+
+
 
 function App() {
 
@@ -25,11 +30,11 @@ function App() {
   // console.log(toShow);
   return (
     <>
+      <Messages />
       <Faker />
       <Sio />
       <Form />
       <div>{toShow}</div>
-      {/* <WebSockets></WebSockets> */}
     </>
   )
 }

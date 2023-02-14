@@ -134,13 +134,13 @@ app.get("/ruta-protegida", checkAuthentication, (req, res) => {
 // WEBSOCKETS
 io.on('connection', async (socket) => {
 
+  // -------- CHAT -------- 
   const { getMySQLProds, generateURL, getTheNumber, chatPage, products } = await require("./WEBSOCKETS/websockets")
 
   const THEFINALNORMALIZED = await getTheNumber()
 
   // connectionSocket()
   io.sockets.emit('chatPage', await THEFINALNORMALIZED)
-  // -------- CHAT -------- 
   socket.on('testChat', async (data) => {
     logger.info({ testChat: data })
     // console.log("testChat", data);
