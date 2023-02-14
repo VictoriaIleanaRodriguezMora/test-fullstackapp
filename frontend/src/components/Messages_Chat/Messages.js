@@ -1,7 +1,9 @@
 // import { useEffect, useState } from "react";
 import React from 'react'
-import io from "socket.io-client";
+import "../../SCSS/index.scss"
 import { normalize, schema, denormalize } from 'normalizr';
+
+import io from "socket.io-client";
 const socket = io()
 
 // const socket = io("/");

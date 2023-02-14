@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../SCSS/index.scss"
 import io from "socket.io-client";
 const socket = io("/");
 

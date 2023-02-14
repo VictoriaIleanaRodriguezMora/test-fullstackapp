@@ -6,7 +6,7 @@ import Sio from './components/SIO/Sio';
 import Faker from './components/Faker.js/Faker';
 import Messages from './components/Messages_Chat/Messages';
 import Products from './components/Products/Products';
-
+import "./SCSS/index.scss"
 
 
 

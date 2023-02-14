@@ -1,6 +1,8 @@
 import React from 'react'
 import io from "socket.io-client";
+import "../../SCSS/index.scss"
 const socket = io("/");
+
 
 const Products = () => {
     // ----------------- Socket Products -----------------
