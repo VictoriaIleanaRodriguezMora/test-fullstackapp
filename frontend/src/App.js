@@ -5,7 +5,7 @@ import Form from './components/Form/Form';
 import Sio from './components/SIO/Sio';
 import Faker from './components/Faker.js/Faker';
 import Messages from './components/Messages_Chat/Messages';
-
+import Products from './components/Products/Products';
 
 
 
@@ -30,8 +30,9 @@ function App() {
   // console.log(toShow);
   return (
     <>
-      <Messages />
       <Faker />
+    <Products/>
+      <Messages />
       <Sio />
       <Form />
       <div>{toShow}</div>
