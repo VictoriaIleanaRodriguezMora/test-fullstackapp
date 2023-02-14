@@ -4,6 +4,7 @@ import io from "socket.io-client";
 const socket = io("/");
 
 const Sio = () => {
+    // const [faker, setFaker] = useState('')
 
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState("");
@@ -22,6 +23,34 @@ const Sio = () => {
 
     console.log(messages);
 
+    const handleFaker = (a) => {
+
+    }
+    // ----------- FAKER - NORMALIZR -----------
+
+    socket.on('prodsDesafio11', async (dataProds) => {
+        const tBody = document.querySelector('#tbodyFaker')
+
+        let tr = dataProds
+            .map((item) => {
+                // console.log(item);
+                return `
+          <tr>
+          <td>${item.title}</td>
+          <td>${item.price}</td>
+          <td>${item.thumbnail}</td>
+          </tr>
+          `
+            })
+            .join(' ')
+
+        tBody.innerHTML = tr
+
+        console.log('prodsDesafio11', dataProds)
+        //   socket.io.emit(dataProds)
+    })
+
+    // ----------- FAKER - NORMALIZR -----------
     const handleSubmit = (event) => {
         event.preventDefault();
         const newMessage = {
@@ -36,9 +65,9 @@ const Sio = () => {
 
 
     return (
-        <div className="h-screen bg-zinc-800 text-white flex items-center justify-center">
-            <form onSubmit={handleSubmit} className="bg-zinc-900 p-10">
-                <h1 className="text-2xl font-bold my-2">Chat React</h1>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h1>Chat React</h1>
                 <input
                     name="message"
                     type="text"
@@ -56,6 +85,25 @@ const Sio = () => {
                     ))}
                 </ul>
             </form>
+
+
+
+
+
+
+            <div id="containerFaker">
+                <h3>FAKER</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Thumbnail</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyFaker"></tbody>
+                </table>
+            </div>
         </div>
     );
 }
