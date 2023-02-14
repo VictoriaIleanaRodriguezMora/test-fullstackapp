@@ -6,6 +6,9 @@ import Sio from './components/SIO/Sio';
 import Faker from './components/Faker.js/Faker';
 import Messages from './components/Messages_Chat/Messages';
 import Products from './components/Products/Products';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+
 import "./SCSS/index.scss"
 
 
@@ -30,12 +33,14 @@ function App() {
   // console.log(toShow);
   return (
     <>
+      <NavBar />
       <Faker />
-    <Products/>
+      <Products />
       <Messages />
       <Sio />
       <Form />
       <div>{toShow}</div>
+      <Footer />
     </>
   )
 }
