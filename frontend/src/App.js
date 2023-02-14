@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-import WebSockets from './components/WebSockets/WebSockets';
+// import WebSockets from './components/WebSockets/WebSockets';
 import Form from './components/Form/Form';
+import Sio from './components/SIO/Sio';
 
 function App() {
 
@@ -23,9 +24,10 @@ function App() {
   // console.log(toShow);
   return (
     <>
+      <Sio />
       <Form />
       <div>{toShow}</div>
-      <WebSockets></WebSockets>
+      {/* <WebSockets></WebSockets> */}
     </>
   )
 }

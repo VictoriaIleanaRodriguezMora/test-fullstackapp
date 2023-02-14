@@ -165,9 +165,22 @@ io.on('connection', async (socket) => {
   })
 
   // ----------- FAKER - NORMALIZR -----------
+
+  io.sockets.emit("messages", "MSG")
 })
 // WEBSOCKETS
 
+
+
+
+
+
+
+
+
+
+
+/* 
 const webSocketsServerPort = 2000;
 const webSocketServer = require('websocket').server;
 const http = require('http');
@@ -221,3 +234,4 @@ wsServer.on('request', function (request) {
 
 
 
+ */
