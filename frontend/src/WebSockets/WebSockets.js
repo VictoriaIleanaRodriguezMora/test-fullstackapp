@@ -25,7 +25,7 @@ const WebSockets = () => {
 
         client.onmessage = (message) => {
             const dataFromServer = JSON.parse(message.data);
-            // console.log('got reply! ', dataFromServer);
+            console.log('got reply! ', dataFromServer);
         }
     }
     componentDidMount()
