@@ -125,7 +125,7 @@ const inputProds = () => {
 
 // ----------- FAKER - NORMALIZR -----------
 
-socket.on('prodsDesafio11', async (dataProds) => {
+socket.on('fakerInfo', async (dataProds) => {
   const tBody = document.querySelector('#tbodyFaker')
 
   let tr = dataProds
@@ -143,7 +143,7 @@ socket.on('prodsDesafio11', async (dataProds) => {
 
   tBody.innerHTML = tr
 
-  console.log('prodsDesafio11', dataProds)
+  console.log('fakerInfo', dataProds)
   //   socket.io.emit(dataProds)
 })
 

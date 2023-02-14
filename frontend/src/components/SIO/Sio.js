@@ -23,18 +23,13 @@ const Sio = () => {
 
     console.log(messages);
 
-    const handleFaker = (a) => {
-
-    }
-    // ----------- FAKER - NORMALIZR -----------
-
-    socket.on('prodsDesafio11', async (dataProds) => {
+    const handleFaker = (dataPRODS) => {
         const tBody = document.querySelector('#tbodyFaker')
 
-        let tr = dataProds
+        let tr = dataPRODS
             .map((item) => {
                 // console.log(item);
-                return `
+                return ` 
           <tr>
           <td>${item.title}</td>
           <td>${item.price}</td>
@@ -45,9 +40,12 @@ const Sio = () => {
             .join(' ')
 
         tBody.innerHTML = tr
+    }
+    // ----------- FAKER - NORMALIZR -----------
 
-        console.log('prodsDesafio11', dataProds)
-        //   socket.io.emit(dataProds)
+    socket.on('fakerInfo', async (dataProds) => {
+        handleFaker(dataProds)
+        console.log('fakerInfo', dataProds)
     })
 
     // ----------- FAKER - NORMALIZR -----------
