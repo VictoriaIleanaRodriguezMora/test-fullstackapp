@@ -18,6 +18,13 @@ const WebSockets = () => {
         }));
     }
 
+    function onButtonFAKER(value) {
+        client.send(JSON.stringify({
+            type: "fakerTEST",
+            msg: value,
+        }));
+    }
+
     function componentDidMount() {
         client.onopen = () => {
             console.log('WebSocket Client Connected');
@@ -27,6 +34,12 @@ const WebSockets = () => {
             const dataFromServer = JSON.parse(message.data);
             console.log('got reply! ', dataFromServer);
         }
+
+        client.onfakerTEST = (faker) => {
+            const dataFromServer = JSON.parse(faker.data);
+            console.log('FAKEEEEEEEEEER! ', dataFromServer);
+        }
+
     }
     componentDidMount()
 
@@ -35,6 +48,8 @@ const WebSockets = () => {
     return (
         <div>WebSockets
             <button onClick={() => onButtonClicked("Hello")} >Sennddn</button>
+            <button onClick={() => onButtonFAKER("faker")} >FAKEEEEEEEEEER</button>
+
         </div>
     )
 

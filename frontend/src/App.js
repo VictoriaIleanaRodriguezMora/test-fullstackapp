@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-import WebSockets from './WebSockets/WebSockets';
-
+import WebSockets from './components/WebSockets/WebSockets';
+import Form from './components/Form/Form';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
   // console.log(toShow);
   return (
     <>
+      <Form />
       <div>{toShow}</div>
       <WebSockets></WebSockets>
     </>

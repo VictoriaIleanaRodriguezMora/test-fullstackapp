@@ -199,17 +199,24 @@ wsServer.on('request', function (request) {
   clients[userID] = connection;
   console.log('connected: ' + userID + ' in ' + Object.getOwnPropertyNames(clients));
 
-  connection.on('message', function(message) {
+  connection.on('message', function (message) {
     if (message.type === 'utf8') {
       console.log('Received Message: ', message.utf8Data);
 
       // broadcasting message to all connected clients
-      for(key in clients) {
+      for (key in clients) {
         clients[key].sendUTF(message.utf8Data);
         console.log('sent Message to: ', clients[key]);
       }
     }
   })
+
+  connection.on('fakerTest', function (faker) {
+    if (faker.type === 'utf8') {
+      console.log('Received FAKER: ', faker.utf8Data);
+    }
+    })
+
 });
 
 
